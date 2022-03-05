@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@700&display=swap" rel="stylesheet">
+    <style>
+        .cover {
+            position: fixed;
+            top: 0;
+            left: 0;
+            background-color: rgba(0, 0, 0, 0.7);
+            height: 100vh;
+            width: 100vw;
+            margin: 0;
+            z-index: -1;
+        }
+
+        body{
+            background-color: black;
+            background-image: url('./bg.jpg');
+            background-size: cover;
+            height: 100vh;
+            width: 100vw;
+            margin: 0;
+            text-align: center;
+            display: flex;
+            justify-content: center;
+            flex-direction: column;
+            align-items: center;
+            color: white;
+            font-family: 'Orbitron', sans-serif;
+        }
+
+        .card{
+            background: linear-gradient(217deg, rgba(255,0,0,.1), rgba(255,0,0,0) 70.71%),
+                        linear-gradient(127deg, rgba(8, 8, 143, 0.1), rgba(0,0,255,0) 70.71%),
+                        linear-gradient(336deg, rgba(5, 87, 62, 0.1), rgba(0,255,0,0) 70.71%);
+            margin: auto;
+            height: min-content;
+            width: 60vw;
+            padding: 2%;
+            border-radius: 25px;
+            text-align: left;
+
+        }
+
+        input {
+            border: none;
+            border-radius: 15px;
+            width: auto;
+            padding: 0.5%;
+            padding-left: 1%;
+        }
+
+        .btn{
+
+            width: max-content;
+            border: none;
+            border-radius: 25px;
+            background:  linear-gradient(90deg, rgba(13, 0, 255, 0.2) 0%, rgba(0, 148, 74, 0.2) 50%, rgba(13, 0, 255, 0.2) 100%);
+            color: white;
+            font-family: 'Orbitron', sans-serif;
+            cursor: pointer;
+        }
+
+        .btn:hover{
+            background:  linear-gradient(90deg, rgba(0, 148, 74, 0.2) 0%, rgba(13, 0, 255, 0.2) 50%, rgba(0, 148, 74, 0.2) 100%);        
+        }
+
+        .error {
+            background: rgba(255, 0, 0, 0.3);
+            text-align: center;
+            display: none;
+        }
+
+        #feed{
+            display: none;
+        }
+
+        .rating{
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            background: linear-gradient(90deg,rgba(255, 0, 0, 0.3),rgba(0, 128, 0, 0.3));
+            border-radius: 50px;
+            padding: 9px;
+        }
+
+        textarea{
+            border: none;
+            border-radius: 15px;
+            width: auto;
+            padding: 0.5%;
+            padding-left: 1%;
+            background: white;
+            width: 80%;
+            height: 20vh;
+
+        }
+
+        .radioB {
+            cursor: pointer;
+        }
+
+        @media only screen and (max-width: 700px) {
+            .rating{
+            display: flex;
+            flex-direction: column;
+            background: linear-gradient(180deg,rgba(255, 0, 0, 0.2),rgba(0, 128, 0, 0.2));
+            }
+        }
+
+    </style>
+    <link rel="icon" href="./CB.gif">
+    <title>Feedback</title>
+</head>
+<body>
+
+    <div class="cover"></div>
+    <div class="card">
+        <h4 id="err" class="error">&#x02298; You forgot to enter your name ! </h4>
+        <h4 id="wellcome"></h4>
+        <form onsubmit="submiter()" action="https://docs.google.com/forms/d/e/1FAIpQLSfHVcwkpWRcrRD6o6WHdny_13YrWSOafNJRcZ0hYXShCpGWhA/formResponse"
+            target="consumer"
+            method="POST">
+
+            <div id="nameCheck">
+                <fieldset>
+                    <legend for="2005986452">Name</legend>
+                    <div class="form-group">
+                        <input id="1799182697" type="text" name="entry.1799182697" class="form-control" required>
+                    </div>
+                </fieldset>
+                <br>
+                <button class="btn" type="button" onclick="next(event)">Next</button>
+            </div>
+            
+
+            <div id="feed">
+
+                <fieldset>
+                    <legend for="2080745171">Reason</legend>
+                    <div class="form-group">
+                        <input id="787769596" type="text" name="entry.787769596" class="form-control" required>
+                    </div>
+                </fieldset>
+
+                <br>
+
+                <fieldset>
+                    <legend for="1632007790">Satisfaction level</legend>
+                    <div class="rating">
+                        <div class="radio">
+                            <label>
+                                <input class="radioB" type="radio" name="entry.268688055" value="Awful" required>
+                                Awful
+                            </label>
+                        </div>
+                        <div class="radio">
+                            <label>
+                                <input class="radioB" type="radio" name="entry.268688055" value="Poor" required>
+                                Poor
+                            </label>
+                        </div>
+                        <div class="radio">
+                            <label>
+                                <input class="radioB" type="radio" name="entry.268688055" value="Fair" required>
+                                Fair
+                            </label>
+                        </div>
+                        <div class="radio">
+                            <label>
+                                <input class="radioB" type="radio" name="entry.268688055" value="Good" required>
+                                Good
+                            </label>
+                        </div>
+                        <div class="radio">
+                            <label>
+                                <input class="radioB" type="radio" name="entry.268688055" value="Excellent" required>
+                                Excellent
+                            </label>
+                        </div>
+                    </div>
+                </fieldset>
+
+                <br>
+
+                <fieldset>
+                    <legend for="899027238">Observation</legend>
+                    <div class="form-group">
+                        <textarea id="1214477284" name="entry.1214477284" class="form-control" required></textarea>
+                    </div>
+                </fieldset>
+
+                <br>
+
+                <input class="btn btn-primary" type="submit" value="Submit">
+            </div>
+        </form>
+    </div>
+
+    <iframe name="consumer" style="display: none;"></iframe>
+
+
+<script>
+    console.log("%cHey, what's up? \nHopefully you are having a great time\n -Ali", 'font-weight: bold; font-size: 45px;color: green; text-shadow: 3px 3px 0 black , 6px 6px 0 green, -3px -3px 0 black , -6px -6px 0 red');
+    console.log("%c😊", "font-size: 45px")
+    function next(e){
+        e.preventDefault();
+        if(document.getElementById("1799182697").value === ""){
+            document.getElementById("err").style.display = "block";
+    
+        }else{
+            document.getElementById("err").style.display = "none";
+            document.getElementById("nameCheck").style.display = "none";
+            document.getElementById("wellcome").innerHTML = `&rangd; Hello! ${document.getElementById('1799182697').value} \n <h5>Provide the required information &DownArrow;</h5>`;
+            document.getElementById("feed").style.display = "block";
+
+        }
+        
+        
+    }
+
+    function submiter(){
+        document.getElementById("feed").style.display = "none";
+        document.getElementById("wellcome").innerHTML = `Thank you! ${document.getElementById('1799182697').value} for your feedback \n <h4> Have a great time 😊</h4>`;
+        
+
+    }
+
+</script>    
+    
+</body>
+</html>
